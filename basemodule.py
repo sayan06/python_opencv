@@ -1,19 +1,3 @@
-# import numpy as np
-# import cv2
-# from matplotlib import pyplot as plt
-# img1 = cv2.imread('cup1.png',1)
-
-# # Initiate ORB detector
-# orb = cv2.ORB_create()
-# # find the keypoints with ORB
-# kp = orb.detect(img1,None)
-# # compute the descriptors with ORB
-# kp, des = orb.compute(img1, kp)
-# # draw only keypoints location,not size and orientation
-# img_points = cv2.drawKeypoints(img1, kp, None,color=(0,255,0), flags=0)
-# #img_points1 = cv2.drawKeypoints(img, kp, None, color=(0,255,0), flags=0)
-# plt.imshow(img1), plt.show()
-
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt

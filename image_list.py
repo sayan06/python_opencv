@@ -1,14 +1,26 @@
 import numpy as np
 import cv2
 from matplotlib import pyplot as plt
-img1 = cv2.imread('enhanced.cup1.jpg',cv2.IMREAD_GRAYSCALE)   # queryImage
-img2 = cv2.imread('enhanced.cup2.jpeg',cv2.IMREAD_GRAYSCALE) # trainImage 
-sift = cv2.xfeatures2d.SIFT_create()
-kp1, des1 = sift.detectAndCompute(img1,None)
-kp2, des2 = sift.detectAndCompute(img2,None)
-# surf = cv2.xfeatures2d.SURF_create()
-# kp1, des1 = surf.detectAndCompute(img1,None)
-# kp2, des2 = surf.detectAndCompute(img2,None)
+from PIL import Image, ImageEnhance 
+
+im = Image.open("press1.jpeg")
+enhancer = ImageEnhance.Sharpness(im)
+enhanced_im = enhancer.enhance(10.0)
+enhanced_im.save("enhanced.press1.jpeg")
+
+im = Image.open("press2.jpeg")
+enhancer = ImageEnhance.Sharpness(im)
+enhanced_im = enhancer.enhance(10.0)
+enhanced_im.save("enhanced.press2.jpeg")
+
+img1 = cv2.imread('enhanced.press1.jpeg',cv2.IMREAD_GRAYSCALE)   # queryImage
+img2 = cv2.imread('enhanced.press2.jpeg',cv2.IMREAD_GRAYSCALE) # trainImage 
+# sift = cv2.xfeatures2d.SIFT_create()
+# kp1, des1 = sift.detectAndCompute(img1,None)
+# kp2, des2 = sift.detectAndCompute(img2,None)
+surf = cv2.xfeatures2d.SURF_create()
+kp1, des1 = surf.detectAndCompute(img1,None)
+kp2, des2 = surf.detectAndCompute(img2,None)
 
 # bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
 
